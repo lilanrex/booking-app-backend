@@ -3,6 +3,7 @@ import Hotel from "../models/Hotel.js";
 
 const router = express.Router();
 
+//CREATE
 router.post("/", async function (req,res){
 
       const newHotel = new Hotel(req.body);
@@ -16,5 +17,22 @@ router.post("/", async function (req,res){
 
 
 });
+
+//UPDATE
+router.put("/:id", async function (req,res){
+      
+      try{
+         const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, 
+            {$set: req.body},
+            {new:true} // we get the updated document in our const updatedHotel.
+            );
+         res.status(200).json(updatedHotel);
+        } catch(err) {
+         res.status(500).json(err)
+        }
+
+
+});
+
 
 export default router;
