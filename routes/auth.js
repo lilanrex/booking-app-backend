@@ -1,13 +1,10 @@
 import  express  from "express";
+import { register } from "../controllers/auth.js";
 
 const router = express.Router();
 
-router.get("/", function(req,res){
-    res.send("Bienvenue!");
-});
 
-router.get("/register", function(req,res){
-      res.send("click to......");
-});
+
+router.post("/register", register);
 
 export default router;
