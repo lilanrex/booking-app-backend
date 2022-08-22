@@ -1,5 +1,5 @@
-import  express  from "express";
-import Hotel from "../models/Hotel.js";
+import  express  from "express";import Hotel from "../models/Hotel.js";
+
 import { createError } from "../utils/error.js";
 import { createHotel, updateHotel, deleteHotel, getHotel, getAllHotels } from "../controllers/hotel.js";
 
